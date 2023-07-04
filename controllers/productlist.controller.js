@@ -3,7 +3,7 @@ const productListService = require('../services/service.product');
 const CreatProductlist = async(req, res) =>{
    try{
         const response = await productListService.CreatProductlist(req.body);
-        // console.log("++++++++++++++req.body",req)
+      
         if(response.Product){
             res.status(201).send({
                 data: response.Product,
@@ -44,5 +44,68 @@ const GetallProductlist = async(req, res) =>{
     }
 }
 
+const GetIDProduct = async(req,res) =>{
+    try{
+        const response = await productListService.GetIDProduct(req.params);
+        if(response.error){
+            res.status(401).send({
+                result: response.error
+            })
+        }else{
+            res.status(201).send({
+                result: response
+            })
+        }
+    }
+    catch(err){
+        res.status(500).send({
+            result: err
+        })
+    }
+}
 
-module.exports = {CreatProductlist, GetallProductlist }
+
+// update Productlist by id 
+const updateProductlist  = async(req, res) =>{
+    try{
+        const response = await productListService.updateProductlist(req.params, req.body);
+        if(response.error){
+            res.status(401).send({
+                result: response.error
+            })
+        }else{
+            res.status(201).send({
+                result: response
+            })
+        }
+    }
+    catch(err){
+        res.status(500).send({
+            result: err
+        })
+    }
+}
+// Delete Productlist by id 
+const deleteProductlist  = async(req, res) =>{
+    try{
+        const response = await productListService.deleteProductlist(req.params);
+        if(response.error){
+            res.status(401).send({
+                result: response.error
+            })
+        }else{
+            res.status(201).send({
+                result: response
+            })
+        }
+    }
+    catch(err){
+        res.status(500).send({
+            result: err
+        })
+    }
+}
+
+
+
+module.exports = {CreatProductlist, GetallProductlist, updateProductlist, deleteProductlist ,GetIDProduct }
