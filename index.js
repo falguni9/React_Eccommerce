@@ -11,6 +11,7 @@ const authRoutes = require('./routes/auth.routes');
 const orderRoutes = require('./routes/order.routes');
 const productRoutes = require('./routes/product.routes');
 const payment = require('./routes/payment.routes');
+const userRoutes = require('./routes/user.routes')
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -23,7 +24,7 @@ productRoutes(app)
 authRoutes(app);
 orderRoutes(app);
 payment(app);
-// ticketRoutes(app);
+userRoutes(app);
 
 // git remote add origin https://github.com/falguni9/React_Eccommerce.git
 // app.post('/create-checkout-session', async (req, res) => {
