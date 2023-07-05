@@ -1,3 +1,3 @@
-const mongoDbUri = 'mongodb+srv://falguniray3:Falguni321@cluster0.jmvi3vp.mongodb.net/?retryWrites=true&w=majority';
+const mongoDbUri = process.env.mongoUri||'mongodb://127.0.0.1:27017/react_ecoom_backend';
 
 module.exports = mongoDbUri;

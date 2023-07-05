@@ -45,8 +45,8 @@ const payment = async(req,res) =>{
   
         line_items,
         mode: 'payment',
-        success_url: 'http://localhost:3000/paysuccess',
-        cancel_url: 'http://localhost:3000/payfailed',
+        success_url: 'https://react-front-ecom.netlify.app/paysuccess',
+        cancel_url: 'https://react-front-ecom.netlify.app/payfailed',
       });
     //   console.log(req.body.Orderdata)
       res.send({url:session.url})
